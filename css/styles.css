@@ -35,6 +35,11 @@
   font-size: 1.2vw;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 body > *:not(footer) {
   margin: 5% 10%;
 }
@@ -165,5 +170,78 @@ header .link-button {
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 1.2;
+  }
+}
+
+/* Footer */
+footer {
+  padding: 2% 10%;
+  margin: 0;
+  background-color: #161616;
+  text-align: center;
+}
+
+footer h1 {
+  color: white;
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 3%;
+}
+
+footer .links {
+  display: flex;
+  justify-content: center;
+}
+
+footer .links a {
+  text-decoration: none;
+  color: #b9b9b9;
+  font-size: 1.2rem;
+  margin: 0 1.2rem;
+  display: inline-block;
+}
+
+footer h3 {
+  margin-top: 50px;
+  color: white;
+}
+
+footer .social-links {
+  display: flex;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+
+footer .social-links a {
+  margin: 0 1.25rem;
+}
+footer .social-links a:nth-child(1) {
+  color: #0e8cf1;
+}
+
+footer .social-links a:nth-child(2) {
+  color: #1da1f2;
+}
+
+footer .social-links a:nth-child(3) {
+  color: red;
+}
+
+/* Min-width and Max-width is Exclusive and Not Inclusive */
+/* For Device width upto 767, max-width must be 768 */
+/* Mobile */
+@media screen and (max-width: 768px) {
+}
+
+/* Tablet */
+/* For Device width from 768 to 1023, min is 767, max 1024 */
+@media screen and (min-width: 767px) and (max-width: 1024px) {
+  footer .links {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  footer .links a {
+    font-size: 1.6rem;
+    margin: 0 2rem;
   }
 }
