@@ -53,7 +53,7 @@ body {
 }
 
 body > *:not(footer) {
-  margin: 5% 10%;
+  margin: 5% 3%;
 }
 
 .have-border-radius {
@@ -146,6 +146,12 @@ header .link-button {
 /* For Device width upto 767, max-width must be 768 */
 /* Mobile */
 @media screen and (max-width: 768px) {
+  body {
+    padding: 0;
+  }
+  header {
+    margin-top: 0;
+  }
   header #banner-paragraph {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -197,8 +203,9 @@ header .link-button {
 
 #fixture-and-blog {
   grid-template-columns: 1fr 3fr;
+  grid-auto-rows: 1fr;
+  grid-auto-flow: row;
   gap: 1%;
-  margin-bottom: 10rem;
 }
 
 #fixture-and-blog nav {
@@ -225,7 +232,13 @@ header .link-button {
 
 #fixture-and-blog div#content-grid {
   grid-template-columns: repeat(3, 1fr);
+  /* grid-auto-rows: 1fr; */
+  grid-auto-flow: row;
   gap: 1%;
+}
+
+#fixture-and-blog div#content-grid > * {
+  min-height: 0;
 }
 
 #fixture-and-blog div#content-grid .blog-image img {
@@ -252,7 +265,7 @@ header .link-button {
 }
 
 #content-grid article .blog-stat {
-  gap: 1rem;
+  gap: 1.5rem;
   color: #161616bb;
 }
 
@@ -262,9 +275,35 @@ header .link-button {
 
 /* Min-width and Max-width is Exclusive and Not Inclusive */
 /* For Device width upto 767, max-width must be 768 */
+/* Chrome once agrees, once don't */
 /* Mobile */
 @media screen and (max-width: 768px) {
-    
+  #fixture-and-blog {
+    grid-template-columns: 1fr;
+  }
+
+  #fixture-and-blog nav {
+    justify-self: stretch;
+    padding: 0%;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: transparent;
+  }
+  #fixture-and-blog nav a {
+    font-size: 3vw;
+    display: block;
+    border: 1px solid lightgray;
+  }
+
+  #fixture-and-blog div#content-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  #fixture-and-blog div#content-grid .topic,
+  #fixture-and-blog div#content-grid .blog-title,
+  #fixture-and-blog div#content-grid .blog-stat {
+    font-size: 3vw;
+  }
 }
 
 /* Tablet */
@@ -272,6 +311,7 @@ header .link-button {
 @media screen and (min-width: 767px) and (max-width: 1024px) {
   #fixture-and-blog {
     grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
   }
 
   #fixture-and-blog nav {
@@ -292,13 +332,11 @@ header .link-button {
   #content-grid article:nth-child(n + 7) {
     display: none;
   }
-  #fixture-and-blog > div:nth-child(3) {
-    justify-self: center;
-  }
 
   #fixture-and-blog > div:nth-child(3) {
+    padding: 2%;
     display: block;
-    margin-top: 2.5rem;
+    justify-self: center;
     font-size: 1rem;
   }
 }
@@ -309,7 +347,6 @@ header .link-button {
 footer {
   padding: 2% 10%;
   margin: 0;
-  margin-top: 5rem;
   background-color: #161616;
   text-align: center;
 }
